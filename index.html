@@ -1,0 +1,2724 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusFlow - Template #1 em Produtividade | Organize sua semana em 5 minutos</title>
+    <meta name="description" content="O método que transforma segundas-feiras caóticas em semanas de alta performance. Template Notion completo com garantia de 7 dias.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Configuração Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        primary: '#00D26A',
+                        'primary-dark': '#00B85C',
+                        dark: { 900: '#0A0A0A', 800: '#111111', 700: '#1A1A1A', 600: '#222222', 500: '#2A2A2A' }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'scale-in': 'scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'bounce-slow': 'bounce 2s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { 
+            background: #0A0A0A; 
+            color: white; 
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Utilitários Personalizados */
+        .gradient-text { 
+            background: linear-gradient(135deg, #00D26A 0%, #00FF88 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            background-clip: text;
+        }
+        
+        .glass { 
+            background: rgba(26, 26, 26, 0.8); 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.1); 
+        }
+        
+        .glass-strong {
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .btn-primary { 
+            background: linear-gradient(135deg, #00D26A 0%, #00B85C 100%); 
+            box-shadow: 0 4px 20px rgba(0,210,106,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 8px 30px rgba(0,210,106,0.4); 
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+        
+        .tag { 
+            background: rgba(0,210,106,0.1); 
+            border: 1px solid rgba(0,210,106,0.3); 
+            color: #00D26A; 
+        }
+        
+        .tag-red { 
+            background: rgba(239,68,68,0.1); 
+            border: 1px solid rgba(239,68,68,0.3); 
+            color: #EF4444; 
+        }
+        
+        .tag-yellow { 
+            background: rgba(234,179,8,0.1); 
+            border: 1px solid rgba(234,179,8,0.3); 
+            color: #EAB308; 
+        }
+        
+        .tag-purple {
+            background: rgba(168,85,247,0.1);
+            border: 1px solid rgba(168,85,247,0.3);
+            color: #A855F7;
+        }
+        
+        .progress-bar { 
+            background: linear-gradient(90deg, #00D26A 0%, #00FF88 100%); 
+        }
+        
+        .check-green { color: #00D26A; }
+        .check-red { color: #EF4444; }
+        .dash-yellow { color: #EAB308; }
+        
+        /* Animações de Scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Sticky Header */
+        .sticky-header {
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .sticky-header.visible {
+            transform: translateY(0);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00D26A;
+        }
+        
+        /* Video Container */
+        .video-container {
+            position: relative;
+            background: linear-gradient(135deg, #1A1A1A 0%, #0A0A0A 100%);
+        }
+        
+        .play-button {
+            transition: all 0.3s ease;
+        }
+        
+        .play-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(0,210,106,0.4);
+        }
+        
+        /* Testimonial Card */
+        .testimonial-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Value Stack Item */
+        .value-item {
+            transition: all 0.3s ease;
+        }
+        
+        .value-item:hover {
+            background: rgba(0,210,106,0.05);
+        }
+        
+        /* FAQ Accordion */
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .faq-content.open {
+            max-height: 500px;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-icon.rotate {
+            transform: rotate(180deg);
+        }
+        
+        /* Exit Intent Modal */
+        .modal-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            transform: scale(0.9) translateY(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+        
+        /* Progress Bar */
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00D26A 0%, #00FF88 100%);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+        
+        /* Glow Effects */
+        .glow-primary {
+            box-shadow: 0 0 60px rgba(0,210,106,0.15);
+        }
+
+        /* Checkout Slide-over */
+        .checkout-modal {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            max-width: 500px;
+            background: #0A0A0A;
+            z-index: 100;
+            transform: translateX(100%);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            border-left: 1px solid rgba(255,255,255,0.1);
+            overflow-y: auto;
+        }
+
+        .checkout-modal.active {
+            transform: translateX(0);
+        }
+
+        .checkout-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(4px);
+            z-index: 90;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .checkout-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .payment-tab-btn.active {
+            background: rgba(0,210,106,0.1);
+            border-color: #00D26A;
+            color: #00D26A;
+        }
+
+        .order-bump {
+            border: 2px dashed #EAB308;
+            animation: pulse-border 2s infinite;
+        }
+
+        @keyframes pulse-border {
+            0% { border-color: rgba(234,179,8,0.4); }
+            50% { border-color: rgba(234,179,8,1); }
+            100% { border-color: rgba(234,179,8,0.4); }
+        }
+
+        .payment-content {
+            display: none;
+        }
+
+        .payment-content.active {
+            display: block;
+        }
+
+        /* Sticky Summary for Desktop */
+        @media (min-width: 1024px) {
+            .checkout-grid {
+                display: grid;
+                grid-template-columns: 1fr 350px;
+                gap: 2rem;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            .checkout-modal {
+                max-width: 100%;
+            }
+        }
+
+        .loading-spinner {
+            border: 3px solid rgba(255,255,255,0.1);
+            border-top: 3px solid #00D26A;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .success-checkmark {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+            background: #00D26A;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: scale-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .success-checkmark i {
+            font-size: 40px;
+            color: white;
+        }
+
+        /* Shake animation for errors */
+        .shake {
+            animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+        }
+
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+
+        /* Notification Toast */
+        .social-proof-toast {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            transform: translateY(150%);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .social-proof-toast.active {
+            transform: translateY(0);
+        }
+
+        /* Sticky Bar */
+        .urgency-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 2000;
+            transform: translateY(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .urgency-bar.active {
+            transform: translateY(0);
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 30px rgba(0,210,106,0.3);
+        }
+        
+        /* Grid Pattern Background */
+        .bg-grid {
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        /* Noise Texture */
+        .noise {
+            position: relative;
+        }
+        
+        .noise::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.02;
+            pointer-events: none;
+        }
+
+        /* Área do Aluno - Downloads */
+        .membro-header {
+            background: #0f1a0f;
+            border-bottom: 1px solid rgba(34,197,94,0.2);
+        }
+        
+        .area-badge {
+            color: #00D26A;
+            font-size: 11px;
+            background: rgba(0,210,106,0.1);
+            border: 1px solid rgba(0,210,106,0.2);
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .download-card {
+            display: flex; 
+            align-items: center; 
+            gap: 16px;
+            background: #141414;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .download-card:hover { 
+            border-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .download-card.principal {
+            background: linear-gradient(to right, rgba(0,210,106,0.1), #141414);
+            border-color: rgba(0,210,106,0.4);
+            box-shadow: 0 0 20px rgba(0,210,106,0.05);
+        }
+        
+        .badge-green { background: #00D26A; color: #000; }
+        .badge-blue { background: #3b82f6; color: #fff; }
+        .badge-orange { background: #f97316; color: #fff; }
+        .badge-pink { background: #ec4899; color: #fff; }
+        .badge-yellow { background: #eab308; color: #000; }
+        .badge-purple { background: #a855f7; color: #fff; }
+        .badge-red { background: #ef4444; color: #fff; }
+        
+        .btn-baixar {
+            flex-shrink: 0;
+            background: #00D26A; 
+            color: #000;
+            font-weight: 700; 
+            font-size: 12px;
+            padding: 10px 16px; 
+            border-radius: 12px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(0,210,106,0.2);
+            display: inline-block;
+        }
+        
+        .btn-baixar:hover { 
+            background: #00B85C;
+            transform: scale(1.05);
+        }
+
+        .tab-btn {
+            flex: 1; 
+            padding: 12px;
+            border: none; 
+            background: none; 
+            cursor: pointer;
+            color: #9ca3af; 
+            font-size: 13px; 
+            font-weight: 600;
+            border-radius: 12px; 
+            transition: all 0.2s;
+        }
+        
+        .tab-btn.active { 
+            background: #00D26A; 
+            color: #000; 
+            box-shadow: 0 4px 12px rgba(0,210,106,0.3); 
+        }
+        
+        .tab-btn:hover:not(.active) { 
+            color: #fff; 
+            background: rgba(255,255,255,0.05); 
+        }
+
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; animation: fadeIn 0.3s ease; }
+
+        .welcome-banner {
+            background: linear-gradient(135deg, rgba(0,210,106,0.1), rgba(0,210,106,0.05), #111);
+            border: 1px solid rgba(0,210,106,0.3);
+        }
+
+        .aula-card {
+            background: #141414;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .aula-card:hover {
+            border-color: rgba(0,210,106,0.3);
+            transform: translateY(-2px);
+        }
+
+        .aula-thumb {
+            position: relative;
+            width: 80px;
+            height: 60px;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .aula-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+
+        .play-icon {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play-icon-inner {
+            width: 28px;
+            height: 28px;
+            background: #00D26A;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play-icon-inner i {
+            color: #000;
+            font-size: 10px;
+            margin-left: 2px;
+        }
+    </style>
+</head>
+<body class="antialiased bg-grid noise">
+
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress" id="reading-progress"></div>
+
+    <!-- Urgency Sticky Bar -->
+    <div id="urgency-bar" class="urgency-bar bg-primary py-2 px-4 flex items-center justify-between text-black font-bold text-sm sm:text-base">
+        <div class="flex items-center gap-2">
+            <span class="animate-pulse">🔥</span>
+            <span>Últimas 17 vagas com bônus exclusivos</span>
+        </div>
+        <div class="flex items-center gap-4">
+            <button onclick="openCheckout()" class="bg-black text-white px-4 py-1 rounded-full text-xs hover:scale-105 transition-transform">GARANTIR MINHA VAGA →</button>
+            <button onclick="closeUrgencyBar()" class="text-black/50 hover:text-black"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <!-- Social Proof Notification -->
+    <div id="social-proof" class="social-proof-toast glass rounded-xl p-4 flex items-center gap-4 border border-white/10 max-w-xs">
+        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary border border-primary/30">
+            <i class="fas fa-shopping-cart"></i>
+        </div>
+        <div>
+            <p class="text-xs text-white font-medium" id="social-proof-text">Carlos de São Paulo acabou de comprar NexusFlow</p>
+            <p class="text-[10px] text-gray-400">há 2 minutos</p>
+        </div>
+    </div>
+
+    <!-- Checkout Overlay & Modal -->
+    <div id="checkout-overlay" class="checkout-overlay" onclick="closeCheckout()"></div>
+    <div id="checkout-modal" class="checkout-modal">
+        <!-- Checkout Header -->
+        <div class="sticky top-0 z-10 bg-dark-900/95 backdrop-blur-md border-b border-white/5 p-6 flex items-center justify-between">
+            <div>
+                <h2 class="text-xl font-bold">Finalizar Compra</h2>
+                <p class="text-xs text-gray-400">🔒 Checkout 100% seguro criptografado SSL</p>
+            </div>
+            <button onclick="closeCheckout()" class="w-10 h-10 rounded-full hover:bg-white/5 flex items-center justify-center transition-colors">
+                <i class="fas fa-times text-gray-400"></i>
+            </button>
+        </div>
+
+        <div class="p-6">
+            <!-- Progress Steps -->
+            <div class="flex items-center justify-between mb-8 px-2">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-primary text-black flex items-center justify-center text-sm font-bold">1</div>
+                    <span class="text-xs text-gray-400 hidden sm:block">Dados</span>
+                </div>
+                <div class="flex-1 h-0.5 bg-white/10 mx-2"></div>
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-white/10 text-gray-400 flex items-center justify-center text-sm font-bold">2</div>
+                    <span class="text-xs text-gray-400 hidden sm:block">Pagamento</span>
+                </div>
+                <div class="flex-1 h-0.5 bg-white/10 mx-2"></div>
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-white/10 text-gray-400 flex items-center justify-center text-sm font-bold">3</div>
+                    <span class="text-xs text-gray-400 hidden sm:block">Acesso</span>
+                </div>
+            </div>
+
+            <!-- Passo 1: Dados Pessoais -->
+            <div class="mb-8">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="w-6 h-6 rounded-full bg-primary text-black text-xs font-bold flex items-center justify-center">1</span>
+                    <h3 class="font-bold">Dados Pessoais</h3>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs text-gray-400 mb-1">Nome completo *</label>
+                        <input type="text" id="checkout-name" placeholder="Como consta no documento" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-colors text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-gray-400 mb-1">E-mail *</label>
+                        <input type="email" id="checkout-email" placeholder="Para onde enviaremos o acesso" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-colors text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-gray-400 mb-1">CPF *</label>
+                        <input type="text" id="checkout-cpf" placeholder="000.000.000-00" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-colors text-sm">
+                        <p class="text-[10px] text-gray-500 mt-1">Para emissão da nota fiscal</p>
+                    </div>
+                    <div>
+                        <label class="block text-xs text-gray-400 mb-1">WhatsApp (opcional)</label>
+                        <input type="text" id="checkout-whatsapp" placeholder="(11) 98765-4321" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-colors text-sm">
+                    </div>
+                    <label class="flex items-start gap-2 cursor-pointer group">
+                        <input type="checkbox" class="mt-1 accent-primary w-4 h-4">
+                        <span class="text-xs text-gray-400 group-hover:text-gray-300 transition-colors">Aceito os <a href="#" class="text-primary hover:underline">Termos de Uso</a> e <a href="#" class="text-primary hover:underline">Política de Privacidade</a></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Cupom -->
+            <div class="mb-8">
+                <label class="block text-xs text-gray-400 mb-2">Cupom de desconto</label>
+                <div class="flex gap-2">
+                    <input type="text" id="cupom-input" placeholder="NEXUS20" class="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-colors text-sm uppercase">
+                    <button onclick="aplicarCupom()" class="bg-white/10 hover:bg-white/20 text-white px-4 py-3 rounded-lg text-sm font-semibold transition-colors">Aplicar</button>
+                </div>
+                <p id="cupom-msg" class="text-xs mt-2 hidden"></p>
+            </div>
+
+            <!-- Passo 2: Resumo do Pedido -->
+            <div class="mb-8">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="w-6 h-6 rounded-full bg-primary text-black text-xs font-bold flex items-center justify-center">2</span>
+                    <h3 class="font-bold">Resumo do Pedido</h3>
+                </div>
+                <div class="glass rounded-2xl p-4 border border-white/10">
+                    <div class="flex gap-4 mb-4">
+                        <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary/10">
+                            <span class="text-primary font-black text-3xl tracking-tighter">N</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sm">NexusFlow Pro + Todos os Bônus</h4>
+                            <div class="mt-1">
+                                <span class="text-xs text-gray-500 line-through" id="preco-original">R$ 197</span>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-2xl font-bold text-primary" id="preco-final">R$ 47</span>
+                                    <span class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded-full border border-primary/20" id="badge-desconto">76% OFF</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-2 text-center mb-4">
+                        <span class="text-xs font-bold text-yellow-500">12x de <span id="parcela">R$ 4,58</span> no cartão</span>
+                    </div>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 text-xs text-gray-400">
+                            <i class="fas fa-check text-primary"></i> Acesso vitalício
+                        </li>
+                        <li class="flex items-center gap-2 text-xs text-gray-400">
+                            <i class="fas fa-check text-primary"></i> Atualizações grátis
+                        </li>
+                        <li class="flex items-center gap-2 text-xs text-gray-400">
+                            <i class="fas fa-check text-primary"></i> 7 dias de garantia
+                        </li>
+                        <li class="flex items-center gap-2 text-xs text-gray-400">
+                            <i class="fas fa-check text-primary"></i> Suporte prioritário
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Passo 3: Métodos de Pagamento -->
+            <div class="mb-8">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="w-6 h-6 rounded-full bg-primary text-black text-xs font-bold flex items-center justify-center">3</span>
+                    <h3 class="font-bold">Forma de Pagamento</h3>
+                </div>
+                
+                <!-- Tabs -->
+                <div class="grid grid-cols-2 gap-2 mb-6">
+                    <button onclick="setPaymentMethod('pix')" id="btn-pix" class="payment-tab-btn active flex flex-col items-center justify-center gap-1 p-3 rounded-xl border border-white/10 hover:bg-white/5 transition-all">
+                        <i class="fas fa-qrcode text-lg"></i>
+                        <span class="text-[10px] font-bold">PIX</span>
+                        <span class="text-[9px] text-gray-500">Instantâneo</span>
+                    </button>
+                    <button onclick="setPaymentMethod('card')" id="btn-card" class="payment-tab-btn flex flex-col items-center justify-center gap-1 p-3 rounded-xl border border-white/10 hover:bg-white/5 transition-all">
+                        <i class="fas fa-credit-card text-lg"></i>
+                        <span class="text-[10px] font-bold">CARTÃO</span>
+                        <span class="text-[9px] text-gray-500">Até 12x</span>
+                    </button>
+                </div>
+
+                <!-- Pix Content -->
+                <div id="pix-content" class="payment-content active animate-fade-in">
+                    <div class="text-center space-y-4">
+                        <div class="bg-white p-4 rounded-2xl inline-block mb-2">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=00020126580014BR.GOV.BCB.PIX0136nexusflow@email.com520400005303986540647.005802BR5913NexusFlow6009SAO PAULO62070503***6304" alt="QR Code Pix" class="w-40 h-40">
+                        </div>
+                        <p class="text-xs text-gray-400">Escaneie o QR Code com seu banco ou copie o código PIX</p>
+                        <div class="relative">
+                            <input type="text" readonly value="00020126580014BR.GOV.BCB.PIX0136nexusflow@email.com520400005303986540647.005802BR5913NexusFlow6009SAO PAULO62070503***6304" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-xs pr-24 focus:outline-none font-mono">
+                            <button onclick="copiarPix()" class="absolute right-2 top-1.5 bg-primary text-black px-3 py-1.5 rounded-md text-[10px] font-bold hover:scale-105 transition-transform">COPIAR</button>
+                        </div>
+                        <div class="bg-primary/10 border border-primary/30 rounded-lg p-3">
+                            <p class="text-xs text-primary font-medium">🚀 Acesso liberado em até 2 minutos após pagamento</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Content -->
+                <div id="card-content" class="payment-content animate-fade-in">
+                    <div class="space-y-4">
+                        <div class="flex justify-center gap-2 mb-4 opacity-70">
+                            <i class="fab fa-cc-visa text-2xl"></i>
+                            <i class="fab fa-cc-mastercard text-2xl"></i>
+                            <i class="fab fa-cc-amex text-2xl"></i>
+                            <i class="fab fa-cc-diners-club text-2xl"></i>
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-1">Número do cartão</label>
+                            <div class="relative">
+                                <input type="text" id="card-number" placeholder="0000 0000 0000 0000" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-colors text-sm">
+                                <i class="fas fa-credit-card absolute right-4 top-4 text-gray-500"></i>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs text-gray-400 mb-1">Validade</label>
+                                <input type="text" id="card-expiry" placeholder="MM/AA" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-colors text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs text-gray-400 mb-1">CVV</label>
+                                <input type="text" id="card-cvv" placeholder="123" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-colors text-sm">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-1">Nome do titular</label>
+                            <input type="text" placeholder="Como está no cartão" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-colors text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-1">Parcelamento</label>
+                            <select id="parcelas" onchange="atualizarParcela()" class="w-full bg-dark-900 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-colors text-sm">
+                                <option value="1">1x de R$ 47,00 sem juros</option>
+                                <option value="2">2x de R$ 24,50</option>
+                                <option value="3">3x de R$ 16,80</option>
+                                <option value="12" selected>12x de R$ 4,58</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Passo 4: Order Bump -->
+            <div class="mb-8">
+                <div class="order-bump bg-yellow-500/5 rounded-2xl p-4 relative overflow-hidden cursor-pointer" onclick="toggleOrderBump()">
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1">
+                            <input type="checkbox" id="order-bump-check" checked class="w-5 h-5 accent-yellow-500 cursor-pointer">
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-sm font-bold text-yellow-500 mb-1">SIM! Quero adicionar o Template 'Reuniões Produtivas' por apenas +R$ 17</h4>
+                            <p class="text-[11px] text-gray-400 leading-relaxed mb-2">Transforme reuniões chatas em decisões rápidas. Economize 5h/semana com este template exclusivo.</p>
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs text-gray-500 line-through">R$ 47</span>
+                                <span class="text-sm font-bold text-white">Por R$ 17</span>
+                                <span class="text-[10px] bg-yellow-500 text-black px-2 py-0.5 rounded-full font-bold">ECONOMIZE R$ 30</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Passo 5: Botão Final -->
+            <div class="mb-8">
+                <button onclick="processPayment()" id="pay-button" class="btn-primary w-full h-[56px] rounded-xl font-bold text-base flex items-center justify-center gap-2 group">
+                    <span id="btn-text">🔒 PAGAR R$ 64 E RECEBER ACESSO IMEDIATO →</span>
+                    <div id="btn-loader" class="hidden"><div class="loading-spinner"></div></div>
+                </button>
+                <p class="text-[10px] text-gray-500 text-center mt-3">Pagamento processado de forma segura. Seus dados estão criptografados.</p>
+            </div>
+
+            <!-- Selos de Segurança -->
+            <div class="flex items-center justify-center gap-4 opacity-60 mb-6">
+                <div class="flex flex-col items-center gap-1">
+                    <i class="fas fa-shield-alt text-lg"></i>
+                    <span class="text-[9px] uppercase font-bold">SSL</span>
+                </div>
+                <div class="flex flex-col items-center gap-1">
+                    <i class="fas fa-lock text-lg"></i>
+                    <span class="text-[9px] uppercase font-bold">PCI-DSS</span>
+                </div>
+                <div class="flex flex-col items-center gap-1">
+                    <i class="fas fa-check-circle text-lg"></i>
+                    <span class="text-[9px] uppercase font-bold">7 Dias</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thank You / Área do Aluno Modal -->
+    <div id="thank-you-modal" class="fixed inset-0 z-[200] bg-dark-900 overflow-y-auto hidden">
+        <!-- Header Área do Aluno -->
+        <div class="membro-header sticky top-0 z-50">
+            <div class="max-w-3xl mx-auto px-4 h-16 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center border border-primary/30 shadow-lg shadow-primary/10">
+                        <span class="text-primary font-black text-xl tracking-tighter">N</span>
+                    </div>
+                    <div>
+                        <span class="font-bold">NexusFlow</span>
+                        <span class="area-badge ml-2">✓ Área do Aluno</span>
+                    </div>
+                </div>
+                <button onclick="closeThankYou()" class="text-gray-400 hover:text-white text-sm flex items-center gap-1">
+                    <i class="fas fa-sign-out-alt"></i> Sair
+                </button>
+            </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto px-4 py-8">
+            <!-- Success Hero -->
+            <div class="welcome-banner rounded-3xl p-8 text-center mb-8 animate-fade-in">
+                <div class="text-5xl mb-4">🎉</div>
+                <h1 class="text-2xl sm:text-3xl font-bold mb-3">Compra Confirmada!</h1>
+                <p class="text-gray-400 text-sm mb-6 max-w-md mx-auto">Obrigado pela confiança. Você tem acesso vitalício a todo o conteúdo abaixo. Bem-vindo à família NexusFlow!</p>
+                <div class="flex flex-wrap items-center justify-center gap-2">
+                    <span class="tag px-3 py-1.5 rounded-full text-xs font-semibold">✓ Acesso vitalício</span>
+                    <span class="tag px-3 py-1.5 rounded-full text-xs font-semibold">✓ Atualizações grátis</span>
+                    <span class="tag px-3 py-1.5 rounded-full text-xs font-semibold">✓ Suporte prioritário</span>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex bg-dark-800 rounded-2xl p-1 mb-6 border border-white/10">
+                <button class="tab-btn active" onclick="mostrarTab('downloads', this)">📥 Downloads</button>
+                <button class="tab-btn" onclick="mostrarTab('aulas', this)">🎬 Aulas</button>
+                <button class="tab-btn" onclick="mostrarTab('comunidade', this)">💬 Comunidade</button>
+            </div>
+
+            <!-- TAB: DOWNLOADS -->
+            <div id="tab-downloads" class="tab-panel active">
+                <h2 class="font-bold text-lg mb-1">Seus materiais estão prontos 👇</h2>
+                <p class="text-gray-500 text-xs mb-6">Clique em "Baixar" para fazer o download de cada item.</p>
+
+                <!-- PDF Principal -->
+                <div class="download-card principal">
+                    <div class="text-3xl">📕</div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-2 flex-wrap mb-1">
+                            <span class="font-bold text-sm truncate">Guia NexusFlow Completo (PDF)</span>
+                            <span class="badge badge-green text-[10px] px-2 py-0.5 rounded-full font-bold">PRINCIPAL</span>
+                        </div>
+                        <p class="text-gray-400 text-xs mb-1">O guia definitivo de produtividade: sistema completo, exercícios práticos e checklists para alta performance.</p>
+                        <span class="text-[10px] text-gray-600">PDF • 45 páginas • 12 MB</span>
+                    </div>
+                    <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank" download class="btn-baixar">
+                        <i class="fas fa-download mr-1"></i> Baixar
+                    </a>
+                </div>
+
+                <!-- Checklist -->
+                <div class="download-card">
+                    <div class="text-3xl">📋</div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-2 flex-wrap mb-1">
+                            <span class="font-bold text-sm truncate">Checklist de Planejamento Semanal</span>
+                            <span class="badge badge-orange text-[10px] px-2 py-0.5 rounded-full font-bold">BÔNUS</span>
+                        </div>
+                        <p class="text-gray-400 text-xs mb-1">Checklist completo de planejamento semanal: rotina matinal, prioridades do dia e revisão noturna.</p>
+                        <span class="text-[10px] text-gray-600">PDF • Checklist</span>
+                    </div>
+                    <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank" download class="btn-baixar">
+                        <i class="fas fa-download mr-1"></i> Baixar
+                    </a>
+                </div>
+
+                <!-- Guia Produtividade -->
+                <div class="download-card">
+                    <div class="text-3xl">🧠</div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-2 flex-wrap mb-1">
+                            <span class="font-bold text-sm truncate">Guia de Produtividade Pessoal</span>
+                            <span class="badge badge-pink text-[10px] px-2 py-0.5 rounded-full font-bold">BÔNUS</span>
+                        </div>
+                        <p class="text-gray-400 text-xs mb-1">Técnicas comprovadas de gestão de tempo, foco profundo e eliminação de distrações para profissionais.</p>
+                        <span class="text-[10px] text-gray-600">PDF • Guia</span>
+                    </div>
+                    <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank" download class="btn-baixar">
+                        <i class="fas fa-download mr-1"></i> Baixar
+                    </a>
+                </div>
+
+                <!-- GTD -->
+                <div class="download-card">
+                    <div class="text-3xl">⚡</div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-2 flex-wrap mb-1">
+                            <span class="font-bold text-sm truncate">Método GTD — Getting Things Done</span>
+                            <span class="badge badge-yellow text-[10px] px-2 py-0.5 rounded-full font-bold">BÔNUS</span>
+                        </div>
+                        <p class="text-gray-400 text-xs mb-1">O método GTD adaptado: como capturar, organizar e executar tarefas sem deixar nada escapar.</p>
+                        <span class="text-[10px] text-gray-600">PDF • Método GTD</span>
+                    </div>
+                    <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank" download class="btn-baixar">
+                        <i class="fas fa-download mr-1"></i> Baixar
+                    </a>
+                </div>
+
+                <!-- SMART -->
+                <div class="download-card">
+                    <div class="text-3xl">🎯</div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-2 flex-wrap mb-1">
+                            <span class="font-bold text-sm truncate">Guia de Metas SMART</span>
+                            <span class="badge badge-purple text-[10px] px-2 py-0.5 rounded-full font-bold">BÔNUS</span>
+                        </div>
+                        <p class="text-gray-400 text-xs mb-1">Como definir metas que realmente funcionam: o framework SMART aplicado à produtividade semanal.</p>
+                        <span class="text-[10px] text-gray-600">PDF • Framework</span>
+                    </div>
+                    <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank" download class="btn-baixar">
+                        <i class="fas fa-download mr-1"></i> Baixar
+                    </a>
+                </div>
+
+                <!-- 30 Hábitos -->
+                <div class="download-card">
+                    <div class="text-3xl">🔥</div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-2 flex-wrap mb-1">
+                            <span class="font-bold text-sm truncate">30 Hábitos de Alta Performance</span>
+                            <span class="badge badge-red text-[10px] px-2 py-0.5 rounded-full font-bold">BÔNUS</span>
+                        </div>
+                        <p class="text-gray-400 text-xs mb-1">Os 30 hábitos mais estudados e praticados por líderes de alta performance ao redor do mundo.</p>
+                        <span class="text-[10px] text-gray-600">PDF • Lista completa</span>
+                    </div>
+                    <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank" download class="btn-baixar">
+                        <i class="fas fa-download mr-1"></i> Baixar
+                    </a>
+                </div>
+
+                <!-- Notion Template -->
+                <div class="mt-6 bg-gradient-to-r from-blue-900/20 to-dark-800 border border-blue-500/30 rounded-2xl p-5">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center text-2xl flex-shrink-0">
+                            🔗
+                        </div>
+                        <div>
+                            <h3 class="font-bold mb-1">Template NexusFlow — Notion</h3>
+                            <p class="text-gray-400 text-xs leading-relaxed">Acesse o template principal do Notion com todas as 6 ferramentas integradas. Clique em "Duplicate" no canto superior direito para adicionar à sua conta.</p>
+                        </div>
+                    </div>
+                    <a href="https://www.notion.so/templates/weekly-agenda" target="_blank" class="flex items-center justify-center gap-2 w-full bg-white hover:bg-gray-100 text-black font-bold py-3 rounded-xl text-sm transition-colors">
+                        Abrir template no Notion <i class="fas fa-external-link-alt text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- TAB: AULAS -->
+            <div id="tab-aulas" class="tab-panel">
+                <h2 class="font-bold text-lg mb-1">Mini Curso Completo 🎬</h2>
+                <p class="text-gray-500 text-xs mb-6">5 aulas em vídeo. Aprenda tudo em menos de 1 hora.</p>
+
+                <div id="aulas-lista">
+                    <!-- Aulas serão renderizadas via JS -->
+                </div>
+                
+                <div id="aula-player" class="hidden">
+                    <div class="bg-dark-800 rounded-2xl overflow-hidden border border-white/10">
+                        <div class="relative pb-[56.25%] bg-black">
+                            <iframe id="video-iframe" class="absolute inset-0 w-full h-full" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4">
+                            <h3 id="video-titulo" class="font-bold mb-2"></h3>
+                            <p id="video-desc" class="text-gray-400 text-xs mb-4"></p>
+                            <button onclick="voltarLista()" class="text-gray-500 hover:text-white text-xs flex items-center gap-1">
+                                <i class="fas fa-arrow-left"></i> Voltar à lista de aulas
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB: COMUNIDADE -->
+            <div id="tab-comunidade" class="tab-panel">
+                <h2 class="font-bold text-lg mb-6">Comunidade NexusFlow 💬</h2>
+
+                <!-- WhatsApp -->
+                <div class="bg-gradient-to-br from-green-900/20 to-dark-800 border border-green-500/30 rounded-2xl p-6 mb-4">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center text-2xl flex-shrink-0">
+                            📱
+                        </div>
+                        <div>
+                            <h3 class="font-bold mb-1">Grupo VIP no WhatsApp</h3>
+                            <p class="text-gray-400 text-xs leading-relaxed">Mais de 2.500 profissionais compartilhando resultados, dicas e se motivando juntos todos os dias.</p>
+                        </div>
+                    </div>
+                    <a href="https://chat.whatsapp.com/SEU_LINK_AQUI" target="_blank" class="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-3 rounded-xl text-sm transition-colors">
+                        <i class="fab fa-whatsapp"></i> Entrar no Grupo VIP
+                    </a>
+                </div>
+
+                <!-- Suporte -->
+                <div class="bg-dark-800 border border-white/10 rounded-2xl p-6 mb-4">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-2xl flex-shrink-0">
+                            ✉️
+                        </div>
+                        <div>
+                            <h3 class="font-bold mb-1">Suporte Prioritário</h3>
+                            <p class="text-gray-400 text-xs leading-relaxed">Nossa equipe responde em até 24h úteis (seg–sex, 9h–18h). Estamos aqui para ajudar!</p>
+                        </div>
+                    </div>
+                    <a href="mailto:suporte@nexusflow.com" class="flex items-center justify-center gap-2 w-full border border-primary/50 text-primary hover:bg-primary/10 font-bold py-3 rounded-xl text-sm transition-colors">
+                        <i class="fas fa-envelope"></i> suporte@nexusflow.com
+                    </a>
+                </div>
+
+                <!-- Garantia -->
+                <div class="bg-yellow-900/10 border border-yellow-500/20 rounded-2xl p-5 flex items-start gap-3">
+                    <span class="text-2xl flex-shrink-0">🛡️</span>
+                    <div>
+                        <p class="font-bold text-sm mb-1">Lembrete: Garantia de 7 dias</p>
+                        <p class="text-gray-400 text-xs leading-relaxed">Se não ficar satisfeito, envie email para <strong class="text-white">suporte@nexusflow.com</strong> e devolvemos 100% do valor, sem perguntas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upsell Section -->
+            <div class="mt-8 glass rounded-3xl p-6 border-primary/30 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-primary/20">
+                    <div id="upsell-timer-bar" class="h-full bg-primary transition-all duration-1000" style="width: 100%"></div>
+                </div>
+                
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500/10 border border-red-500/30 text-red-500 text-xs font-bold mb-4 animate-pulse">
+                    <i class="fas fa-clock"></i> OFERTA EXCLUSIVA - VÁLIDA POR <span id="upsell-timer">15:00</span>
+                </div>
+
+                <h2 class="text-xl font-bold mb-2">Que tal dominar não só suas semanas, mas seus PROJETOS inteiros?</h2>
+                <p class="text-gray-400 text-sm mb-6">NexusFlow PRO - Pack Completo: NexusFlow + Gestão de Projetos + Financeiro Pessoal + Hábitos Anuais.</p>
+                
+                <div class="flex items-center justify-center gap-4 mb-6">
+                    <span class="text-gray-500 line-through text-lg">R$ 297</span>
+                    <div class="text-left">
+                        <span class="text-3xl font-bold text-primary">R$ 97</span>
+                        <p class="text-xs text-primary font-bold">ECONOMIZE R$ 200 (67% OFF)</p>
+                    </div>
+                </div>
+
+                <button class="btn-primary w-full py-4 rounded-xl font-bold text-lg mb-3 hover:scale-[1.02] transition-transform">
+                    SIM! QUERO UPGRADE PARA PRO →
+                </button>
+                <button onclick="document.getElementById('upsell-section').style.display='none'" class="text-gray-500 hover:text-gray-300 text-xs w-full text-center">
+                    Não, quero apenas o NexusFlow básico
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Header (aparece ao rolar) -->
+    <header class="sticky-header fixed top-0 left-0 right-0 z-50 bg-dark-900/95 backdrop-blur-md border-b border-white/5" id="sticky-header">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center border border-primary/30 shadow-md shadow-primary/10">
+                    <span class="text-primary font-black tracking-tighter">N</span>
+                </div>
+                <div>
+                    <span class="font-bold">NexusFlow</span>
+                    <span class="hidden sm:inline text-xs text-gray-400 ml-2">• R$ 47 único</span>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <div class="hidden md:flex items-center gap-2 text-xs">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    <span class="text-gray-400"><span id="live-counter">47</span> pessoas compraram hoje</span>
+                </div>
+                <a href="javascript:void(0)" onclick="openCheckout()" class="btn-primary px-6 py-2 rounded-full text-sm font-bold text-black hover:scale-105 transition-transform">
+                    Comprar Agora
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Principal -->
+    <nav class="fixed top-0 left-0 right-0 z-40 bg-dark-900/90 backdrop-blur-md border-b border-white/5 transition-all duration-300" id="main-nav">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center border border-primary/30 shadow-lg shadow-primary/10">
+                    <span class="text-primary font-black text-xl tracking-tighter">N</span>
+                </div>
+                <span class="font-bold text-xl">NexusFlow</span>
+            </div>
+            <a href="javascript:void(0)" onclick="openCheckout()" class="btn-primary px-6 py-2.5 rounded-full text-sm font-semibold text-black transition-all">
+                Comprar agora
+            </a>
+        </div>
+    </nav>
+    <div class="h-16"></div>
+
+    <!-- HERO SECTION COM VSL -->
+    <section class="relative min-h-screen flex flex-col items-center justify-center px-4 pt-10 pb-20 overflow-hidden">
+        <!-- Background Effects -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl pointer-events-none animate-pulse-slow"></div>
+        <div class="absolute top-20 right-10 w-72 h-72 bg-primary/3 rounded-full blur-2xl pointer-events-none"></div>
+        <div class="absolute bottom-20 left-10 w-96 h-96 bg-primary/3 rounded-full blur-2xl pointer-events-none"></div>
+        
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full tag text-sm font-medium mb-6 animate-fade-in">
+                <i class="fas fa-bolt"></i>
+                <span>Template #1 em Produtividade</span>
+            </div>
+            
+            <!-- Headline -->
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 reveal">
+                Organize sua semana em <span class="gradient-text glow-text">5 minutos.</span><br>
+                Execute como um <span class="text-white">CEO.</span>
+            </h1>
+            
+            <!-- Subheadline -->
+            <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 reveal" style="transition-delay: 0.1s">
+                O método que transforma segundas-feiras caóticas em semanas de alta performance — <span class="text-white font-semibold">sem burnout.</span>
+            </p>
+            
+            <!-- Trust Badges -->
+            <div class="flex flex-wrap items-center justify-center gap-4 mb-10 reveal" style="transition-delay: 0.2s">
+                <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-dark-800 border border-white/10 text-xs text-gray-300">
+                    <i class="fas fa-shield-alt text-primary"></i>
+                    <span>Garantia 7 Dias</span>
+                </div>
+                <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-dark-800 border border-white/10 text-xs text-gray-300">
+                    <i class="fas fa-users text-primary"></i>
+                    <span>2.500+ Alunos</span>
+                </div>
+                <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-dark-800 border border-white/10 text-xs text-gray-300">
+                    <i class="fas fa-star text-primary"></i>
+                    <span>4.9/5 Estrelas</span>
+                </div>
+            </div>
+            
+            <!-- VSL Container -->
+            <div class="max-w-4xl mx-auto mb-10 reveal" style="transition-delay: 0.3s">
+                <div class="video-container rounded-2xl overflow-hidden border border-primary/20 shadow-2xl shadow-primary/10 relative group cursor-pointer" onclick="playVideo()">
+                    <!-- Thumbnail -->
+                    <div class="aspect-video bg-gradient-to-br from-dark-800 to-dark-900 flex items-center justify-center relative" id="video-thumbnail">
+                        <!-- Grid Pattern -->
+                        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, rgba(0,210,106,0.3) 1px, transparent 0); background-size: 40px 40px;"></div>
+                        
+                        <!-- Play Button -->
+                        <div class="play-button w-20 h-20 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center relative z-10">
+                            <i class="fas fa-play text-primary text-2xl ml-1"></i>
+                        </div>
+                        
+                        <!-- Text -->
+                        <div class="absolute bottom-6 left-6 text-left z-10">
+                            <p class="text-white font-semibold text-lg">Assista: Como Organizar Sua Semana em 5 Min</p>
+                            <p class="text-gray-400 text-sm">2:34 • 12.4k visualizações</p>
+                        </div>
+                        
+                        <!-- Live Badge -->
+                        <div class="absolute top-4 left-4 bg-red-500/90 text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse flex items-center gap-1">
+                            <span class="w-2 h-2 bg-white rounded-full"></span>
+                            AO VIVO
+                        </div>
+                    </div>
+                    
+                    <!-- Vídeo MP4 Local (escondido inicialmente) -->
+                    <div class="aspect-video hidden" id="video-embed">
+                        <video 
+                            id="vsl-video"
+                            class="w-full h-full rounded-2xl"
+                            controls
+                            playsinline>
+                            <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663359912368/dLjIUeXucbXnpPtz.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos em HTML5.
+                        </video>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 reveal" style="transition-delay: 0.4s">
+                <a href="javascript:void(0)" onclick="openCheckout()" class="btn-primary px-8 py-4 rounded-2xl text-lg font-bold text-black inline-flex items-center gap-2">
+                    Quero minha semana organizada
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button onclick="scrollToDemo()" class="border border-white/20 px-8 py-4 rounded-2xl text-white flex items-center gap-2 hover:bg-white/5 transition-all">
+                    <i class="fas fa-play text-sm"></i>
+                    <span>Ver demonstração</span>
+                </button>
+            </div>
+            
+            <!-- Social Proof Mini -->
+            <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-400 mb-16 reveal" style="transition-delay: 0.5s">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-check-circle text-primary"></i>
+                    <span>2.500+ vendas</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-star text-primary"></i>
+                    <span>4.9/5 estrelas (847 avaliações)</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-bolt text-primary"></i>
+                    <span>Acesso imediato</span>
+                </div>
+            </div>
+            
+            <!-- Mockup Flutuante -->
+            <div class="relative max-w-md mx-auto float reveal" style="transition-delay: 0.6s">
+                <div class="glass rounded-3xl p-4 sm:p-6 shadow-2xl shadow-primary/10 glow-primary">
+                    <div class="flex gap-2 mb-4">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-400">NexusFlow — Semana 12</span>
+                            <div class="tag px-2 py-1 rounded-full text-xs flex items-center gap-1">
+                                <i class="fas fa-bolt"></i>
+                                <span>+3x produtividade</span>
+                            </div>
+                        </div>
+                        <p class="text-sm font-semibold text-left">Segunda-feira, 17 Mar</p>
+                        <div class="w-full bg-dark-700 rounded-full h-2">
+                            <div class="progress-bar h-2 rounded-full" style="width: 65%"></div>
+                        </div>
+                        <div class="tag px-2 py-1 rounded-full text-xs inline-block">● 3/5 concluídas</div>
+                        
+                        <div class="space-y-2 mt-4">
+                            <div class="flex items-center gap-3 bg-dark-700/50 p-3 rounded-xl">
+                                <div class="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center">
+                                    <i class="fas fa-check text-primary text-xs"></i>
+                                </div>
+                                <span class="text-sm line-through text-gray-400 flex-1">Reunião de alinhamento</span>
+                                <span class="text-xs text-gray-400">09:00</span>
+                                <span class="tag-red px-2 py-0.5 rounded text-xs">Alta</span>
+                            </div>
+                            <div class="flex items-center gap-3 bg-dark-700/50 p-3 rounded-xl">
+                                <div class="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center">
+                                    <i class="fas fa-check text-primary text-xs"></i>
+                                </div>
+                                <span class="text-sm line-through text-gray-400 flex-1">Revisar proposta</span>
+                                <span class="text-xs text-gray-400">10:30</span>
+                                <span class="tag-red px-2 py-0.5 rounded text-xs">Alta</span>
+                            </div>
+                            <div class="flex items-center gap-3 bg-dark-700/30 p-3 rounded-xl border border-white/5">
+                                <div class="w-5 h-5 rounded-full border-2 border-primary flex items-center justify-center">
+                                    <div class="w-2 h-2 rounded-full bg-primary"></div>
+                                </div>
+                                <span class="text-sm flex-1 font-medium">Deep work: projeto X</span>
+                                <span class="text-xs text-gray-400">14:00</span>
+                                <span class="tag-yellow px-2 py-0.5 rounded text-xs">Média</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Badge Animado -->
+                <div class="absolute -top-4 -right-4 glass rounded-xl p-3 shadow-xl animate-bounce-slow">
+                    <div class="flex items-center gap-2">
+                        <div class="flex -space-x-2">
+                            <img src="https://ui-avatars.com/api/?name=Ana&background=3B82F6&color=fff&size=32" class="w-6 h-6 rounded-full border-2 border-dark-900">
+                            <img src="https://ui-avatars.com/api/?name=Carlos&background=10B981&color=fff&size=32" class="w-6 h-6 rounded-full border-2 border-dark-900">
+                            <img src="https://ui-avatars.com/api/?name=Maria&background=F59E0B&color=fff&size=32" class="w-6 h-6 rounded-full border-2 border-dark-900">
+                        </div>
+                        <span class="text-xs font-medium">2.500+ usando agora</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <div class="w-10 h-10 rounded-full border-2 border-primary/30 flex items-center justify-center">
+                <i class="fas fa-arrow-down text-primary text-sm"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM SECTION -->
+    <section class="py-20 px-4 reveal">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-medium mb-8">
+                <span>O problema que você conhece bem</span>
+            </div>
+            
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                Segunda-feira não precisa ser<br>
+                <span class="text-gray-500">um pesadelo.</span>
+            </h2>
+            
+            <p class="text-lg text-gray-400 mb-16 max-w-2xl mx-auto">
+                Se você já sentiu aquele aperto no estômago no domingo à noite, você não está sozinho. 
+                <span class="text-white font-semibold">87% dos profissionais</span> sofrem com ansiedade de produtividade.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-6 text-left">
+                <div class="glass rounded-2xl p-6 hover:border-red-500/30 transition-all group">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🤯</div>
+                    <h3 class="text-xl font-bold mb-3 text-red-400">Sobrecarga Mental</h3>
+                    <p class="text-gray-400 text-sm">Você começa a semana com 50 coisas na cabeça e termina sem saber por onde começar. O resultado? Paralisia por análise.</p>
+                    <div class="mt-4 flex items-center gap-2 text-xs text-red-400">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Aumento de 300% em burnout</span>
+                    </div>
+                </div>
+                
+                <div class="glass rounded-2xl p-6 border-red-500/30 bg-red-500/5 hover:bg-red-500/10 transition-all group">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">😵‍💫</div>
+                    <h3 class="text-xl font-bold mb-3 text-red-400">Falta de Foco</h3>
+                    <p class="text-gray-400 text-sm">Pula de tarefa em tarefa o dia todo, mas no final sente que não produziu nada de verdade. Multitarefa é um mito.</p>
+                    <div class="mt-4 flex items-center gap-2 text-xs text-red-400">
+                        <i class="fas fa-chart-line"></i>
+                        <span>40% de produtividade perdida</span>
+                    </div>
+                </div>
+                
+                <div class="glass rounded-2xl p-6 hover:border-red-500/30 transition-all group">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">⏰</div>
+                    <h3 class="text-xl font-bold mb-3 text-red-400">Sempre Atrasado</h3>
+                    <p class="text-gray-400 text-sm">Deadlines se acumulam, compromissos são esquecidos, e a culpa só cresce. Você está reagindo em vez de criar.</p>
+                    <div class="mt-4 flex items-center gap-2 text-xs text-red-400">
+                        <i class="fas fa-chart-line"></i>
+                        <span>68% das metas não são atingidas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUTION SECTION -->
+    <section class="py-20 px-4 bg-dark-800/30 reveal">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full tag text-sm font-medium mb-6">
+                    <span>A solução existe</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                    E se você pudesse planejar <span class="gradient-text">toda a semana</span><br>
+                    em apenas <span class="gradient-text">5 minutos?</span>
+                </h2>
+                <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                    O NexusFlow é o sistema que <span class="text-white font-semibold">2.500+ profissionais</span> usam para dominar suas semanas sem stress.
+                </p>
+            </div>
+            
+            <!-- Como Funciona - 3 Passos -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="text-center group">
+                    <div class="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center mx-auto mb-4 border border-primary/30 group-hover:scale-110 transition-transform">
+                        <span class="text-2xl font-bold text-primary">1</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Brain Dump</h3>
+                    <p class="text-gray-400 text-sm">Jogue tudo o que está na sua cabeça no sistema. Libere espaço mental imediatamente.</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center mx-auto mb-4 border border-primary/30 group-hover:scale-110 transition-transform">
+                        <span class="text-2xl font-bold text-primary">2</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Priorize</h3>
+                    <p class="text-gray-400 text-sm">A Matriz Eisenhower automática mostra exatamente o que fazer primeiro.</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center mx-auto mb-4 border border-primary/30 group-hover:scale-110 transition-transform">
+                        <span class="text-2xl font-bold text-primary">3</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Execute</h3>
+                    <p class="text-gray-400 text-sm">Siga o plano com clareza. Chegue sexta-feira com tudo feito e energia sobrando.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES GRID -->
+    <section class="py-20 px-4 reveal">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full tag text-sm font-medium mb-6">
+                    <span>Tudo que você precisa</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Um sistema completo, não só um template</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Feature 1 -->
+                <div class="glass rounded-2xl p-6 relative hover:border-primary/30 transition-all group">
+                    <div class="absolute top-4 right-4 tag px-3 py-1 rounded-full text-xs">DRAG & DROP</div>
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-th-large text-blue-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Planejador Semanal Inteligente</h3>
+                    <p class="text-gray-400 text-sm mb-4">Arraste e solte suas tarefas, reorganize prioridades em segundos. Visualização clara de toda sua semana.</p>
+                    <ul class="space-y-2 text-xs text-gray-500">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> 3 visualizações: Calendário, Lista, Kanban</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Filtros automáticos por prioridade</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="glass rounded-2xl p-6 relative hover:border-primary/30 transition-all group">
+                    <div class="absolute top-4 right-4 tag px-3 py-1 rounded-full text-xs">AUTOMÁTICO</div>
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-th text-purple-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Matriz Eisenhower</h3>
+                    <p class="text-gray-400 text-sm mb-4">Classificação automática entre urgente/importante. Saiba exatamente o que fazer, agendar, delegar ou eliminar.</p>
+                    <ul class="space-y-2 text-xs text-gray-500">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Fórmulas automáticas de priorização</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Cores por quadrante</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="glass rounded-2xl p-6 relative hover:border-primary/30 transition-all group">
+                    <div class="absolute top-4 right-4 tag px-3 py-1 rounded-full text-xs">STREAKS</div>
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-fire text-orange-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Rastreador de Hábitos</h3>
+                    <p class="text-gray-400 text-sm mb-4">Mantenha sequências de hábitos com contador de streak automático. Gamificação que funciona.</p>
+                    <ul class="space-y-2 text-xs text-gray-500">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Cálculo automático de dias consecutivos</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Visual em grade tipo calendário</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="glass rounded-2xl p-6 relative hover:border-primary/30 transition-all group">
+                    <div class="absolute top-4 right-4 tag px-3 py-1 rounded-full text-xs">REFLEXÃO</div>
+                    <div class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-book-open text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Revisão Semanal Guiada</h3>
+                    <p class="text-gray-400 text-sm mb-4">Prompts de reflexão que te fazem aprender com cada semana. Melhore continuamente.</p>
+                    <ul class="space-y-2 text-xs text-gray-500">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Template com 5 perguntas-chave</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Histórico de revisões</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="glass rounded-2xl p-6 relative hover:border-primary/30 transition-all group">
+                    <div class="absolute top-4 right-4 tag px-3 py-1 rounded-full text-xs">ANALYTICS</div>
+                    <div class="w-12 h-12 rounded-xl bg-pink-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-chart-line text-pink-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Dashboard de Produtividade</h3>
+                    <p class="text-gray-400 text-sm mb-4">Visualize seu progresso com gráficos automáticos. Veja padrões e melhore seu desempenho.</p>
+                    <ul class="space-y-2 text-xs text-gray-500">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Taxa de conclusão de tarefas</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Consistência de hábitos</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="glass rounded-2xl p-6 relative hover:border-primary/30 transition-all group">
+                    <div class="absolute top-4 right-4 px-3 py-1 rounded-full text-xs bg-gray-700 text-gray-300">5 VARIAÇÕES</div>
+                    <div class="w-12 h-12 rounded-xl bg-yellow-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-gift text-yellow-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Templates Bônus</h3>
+                    <p class="text-gray-400 text-sm mb-4">5 variações prontas: Freelancer, CLT, Estudante, Empreendedor e Criativo.</p>
+                    <ul class="space-y-2 text-xs text-gray-500">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Adaptado para cada perfil</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Inclui OKRs e gestão de clientes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEFORE/AFTER SECTION -->
+    <section class="py-20 px-4 bg-dark-800/30 reveal">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">A transformação em <span class="gradient-text">7 dias</span></h2>
+                <p class="text-gray-400">Veja a diferença entre o caos e o controle</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Before -->
+                <div class="glass rounded-3xl p-8 border-red-500/20 bg-red-500/5">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center">
+                            <i class="fas fa-times text-red-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-red-400">Antes do NexusFlow</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-gray-300">
+                            <i class="fas fa-times-circle text-red-500 mt-1"></i>
+                            <span>50+ tarefas na cabeça, nenhuma no papel</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-300">
+                            <i class="fas fa-times-circle text-red-500 mt-1"></i>
+                            <span>Ansiedade de domingo à noite toda semana</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-300">
+                            <i class="fas fa-times-circle text-red-500 mt-1"></i>
+                            <span>Procrastinação por falta de clareza</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-300">
+                            <i class="fas fa-times-circle text-red-500 mt-1"></i>
+                            <span>Sempre chegando atrasado em deadlines</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-300">
+                            <i class="fas fa-times-circle text-red-500 mt-1"></i>
+                            <span>Sensação de nunca estar fazendo o suficiente</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- After -->
+                <div class="glass rounded-3xl p-8 border-primary/20 bg-primary/5 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
+                    <div class="flex items-center gap-3 mb-6 relative z-10">
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                            <i class="fas fa-check text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary">Depois do NexusFlow</h3>
+                    </div>
+                    <ul class="space-y-4 relative z-10">
+                        <li class="flex items-start gap-3 text-gray-200">
+                            <i class="fas fa-check-circle text-primary mt-1"></i>
+                            <span>Sistema claro: tarefas priorizadas automaticamente</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-200">
+                            <i class="fas fa-check-circle text-primary mt-1"></i>
+                            <span>Domingos tranquilos com plano pronto</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-200">
+                            <i class="fas fa-check-circle text-primary mt-1"></i>
+                            <span>Foco total em uma tarefa por vez</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-200">
+                            <i class="fas fa-check-circle text-primary mt-1"></i>
+                            <span>Entregas sempre antes do prazo</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-200">
+                            <i class="fas fa-check-circle text-primary mt-1"></i>
+                            <span>Sexta-feira com tudo feito e energia sobrando</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF / TESTIMONIALS CAROUSEL -->
+    <section class="py-20 px-4 reveal">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full tag text-sm font-medium mb-6">
+                    <span>Resultados Reais</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                    O que dizem quem já <span class="gradient-text">transformou</span> suas semanas
+                </h2>
+                <div class="flex items-center justify-center gap-2 text-sm text-gray-400">
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <span>4.9/5 baseado em 847 avaliações verificadas</span>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-3 gap-4 mb-12 max-w-3xl mx-auto">
+                <div class="glass rounded-2xl p-6 text-center">
+                    <div class="flex items-center justify-center gap-1 text-primary mb-2">
+                        <i class="fas fa-arrow-trend-up"></i>
+                        <span class="text-3xl font-bold">3x</span>
+                    </div>
+                    <p class="text-xs text-gray-400">mais produtividade em 7 dias</p>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center">
+                    <div class="flex items-center justify-center gap-1 text-primary mb-2">
+                        <i class="fas fa-arrow-trend-up"></i>
+                        <span class="text-3xl font-bold">92%</span>
+                    </div>
+                    <p class="text-xs text-gray-400">reduziram procrastinação</p>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center">
+                    <div class="flex items-center justify-center gap-1 text-primary mb-2">
+                        <i class="fas fa-arrow-trend-up"></i>
+                        <span class="text-3xl font-bold">97%</span>
+                    </div>
+                    <p class="text-xs text-gray-400">taxa de satisfação</p>
+                </div>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="testimonials-container">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card glass rounded-2xl p-6">
+                    <div class="flex gap-1 mb-4">
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6 text-sm leading-relaxed">"Como freelancer, eu vivia apagando incêndio. O NexusFlow me deu clareza. Agora entrego projetos antes do prazo e ainda sobra tempo pra mim."</p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://ui-avatars.com/api/?name=Ana+Beatriz&background=00D26A&color=fff&size=128" class="w-12 h-12 rounded-full border-2 border-primary/30">
+                        <div>
+                            <p class="font-semibold text-sm">Ana Beatriz Silva</p>
+                            <p class="text-xs text-gray-400">Designer Freelancer</p>
+                            <span class="inline-flex items-center gap-1 text-xs text-primary mt-1">
+                                <i class="fas fa-check-circle"></i> Compra verificada
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-white/5">
+                        <span class="tag px-2 py-1 rounded-full text-xs">🚀 3x mais produtiva</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card glass rounded-2xl p-6">
+                    <div class="flex gap-1 mb-4">
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6 text-sm leading-relaxed">"Parei de usar 5 apps diferentes. Agora centralizo tudo no NexusFlow. Minha produtividade aumentou 40% na primeira semana."</p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://ui-avatars.com/api/?name=Carlos+Mendes&background=3B82F6&color=fff&size=128" class="w-12 h-12 rounded-full border-2 border-primary/30">
+                        <div>
+                            <p class="font-semibold text-sm">Carlos Mendes</p>
+                            <p class="text-xs text-gray-400">Desenvolvedor Full Stack</p>
+                            <span class="inline-flex items-center gap-1 text-xs text-primary mt-1">
+                                <i class="fas fa-check-circle"></i> Compra verificada
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-white/5">
+                        <span class="tag px-2 py-1 rounded-full text-xs">🚀 +40% produtividade</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card glass rounded-2xl p-6">
+                    <div class="flex gap-1 mb-4">
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6 text-sm leading-relaxed">"A Matriz Eisenhower automática mudou meu jogo. Consigo priorizar o que realmente importa sem procrastinar. Melhor investimento do ano."</p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://ui-avatars.com/api/?name=Mariana+Costa&background=F59E0B&color=fff&size=128" class="w-12 h-12 rounded-full border-2 border-primary/30">
+                        <div>
+                            <p class="font-semibold text-sm">Mariana Costa</p>
+                            <p class="text-xs text-gray-400">Product Manager</p>
+                            <span class="inline-flex items-center gap-1 text-xs text-primary mt-1">
+                                <i class="fas fa-check-circle"></i> Compra verificada
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-white/5">
+                        <span class="tag px-2 py-1 rounded-full text-xs">🚀 Zero tarefas atrasadas</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-8">
+                <button onclick="loadMoreTestimonials()" class="px-6 py-3 rounded-full border border-white/20 text-sm hover:bg-white/5 transition-all">
+                    Ver mais depoimentos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- AUTHOR SECTION -->
+    <section class="py-20 px-4 bg-dark-800/30 reveal">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-center gap-8">
+                <div class="w-32 h-32 rounded-full bg-gradient-to-br from-primary/20 to-primary/40 flex items-center justify-center border-2 border-primary/30 flex-shrink-0">
+                    <span class="text-4xl">👨‍💻</span>
+                </div>
+                <div class="text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full tag text-xs font-medium mb-3">
+                        <span>Criador do NexusFlow</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Criado por quem entende de produtividade</h3>
+                    <p class="text-gray-400 mb-4">Oi, eu sou o criador do NexusFlow. Depois de anos testando dezenas de métodos e apps, percebi que o problema não era falta de ferramentas, mas falta de <span class="text-white font-semibold">sistema</span>.</p>
+                    <p class="text-gray-400 mb-6">O NexusFlow nasceu da minha necessidade pessoal de organizar uma rotina caótica de empreendedor. Hoje, mais de 2.500 pessoas usam esse sistema para transformar suas semanas.</p>
+                    <div class="flex flex-wrap items-center gap-4 justify-center md:justify-start text-sm text-gray-400">
+                        <span class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> 5+ anos estudando produtividade</span>
+                        <span class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> 2.500+ alunos transformados</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARISON TABLE -->
+    <section class="py-20 px-4 reveal">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full tag text-sm font-medium mb-6">
+                    <span>Compare e decida</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">NexusFlow vs <span class="text-gray-500">Alternativas</span></h2>
+                <p class="text-gray-400">Não é só sobre ter um template. É sobre ter o sistema certo.</p>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm">
+                    <thead>
+                        <tr class="border-b border-white/10">
+                            <th class="pb-4 font-medium text-gray-400">Recurso</th>
+                            <th class="pb-4 text-center">
+                                <div class="inline-block px-4 py-2 rounded-xl bg-primary/20 border border-primary/30">
+                                    <span class="text-primary font-bold">NexusFlow</span>
+                                    <div class="text-xs text-primary/80">R$ 47 único</div>
+                                </div>
+                            </th>
+                            <th class="pb-4 text-center text-gray-400">
+                                <div class="font-bold">Apps de Produtividade</div>
+                                <div class="text-xs text-gray-600">R$ 30-80/mês</div>
+                            </th>
+                            <th class="pb-4 text-center text-gray-400">
+                                <div class="font-bold">Agenda Física</div>
+                                <div class="text-xs text-gray-600">R$ 50-100</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-white/5">
+                            <td class="py-4">Planejamento semanal visual</td>
+                            <td class="py-4 text-center"><i class="fas fa-check check-green"></i></td>
+                            <td class="py-4 text-center"><i class="fas fa-minus dash-yellow"></i></td>
+                            <td class="py-4 text-center"><i class="fas fa-times check-red"></i></td>
+                        </tr>
+                        <tr class="border-b border-white/5">
+                            <td class="py-4">Priorização automática (Eisenhower)</td>
+                            <td class="py-4 text-center"><i class="fas fa-check check-green"></i></td>
+                            <td class="py-4 text-center"><i class="fas fa-times check-red"></i></td>
+                            <td class="py-4 text-center"><i class="fas fa-times check-red"></i></td>
+                        </tr>
+                        <tr class="border-b border-white/5">
+                            <td class="py-4">Rastreamento de hábitos com streaks</td>
+                            <td class="py-4 text-center"><i class="fas fa-check check-green"></i></td>
+                            <td class="py-4 text-center"><i class="fas fa-minus dash-yellow"></i></td>
+                            <td class="py-4 text-center"><i class="fas fa-times check-red"></i></td>
+                        </tr>
+                        <tr class="border-b border-white/5">
+                            <td class="py-4">Revisão semanal guiada</td>
+                            <td class="py-4 text-center"><i class="fas fa-check check-green"></i></td>
+                            <td class="py-4 text-center"><i class="fas fa-times check-red"></i></td>
+                            <td class="py-4 text-center"><i class="fas fa-times check-red"></i></td>
+                        </tr>
+                        <tr class="border-b border-white/5">
+                            <td class="py-4">Dashboard de analytics</td>
+                            <td class="py-4 text-center"><i class="fas fa-check check-green"></i></td>
+                            <td class="py-4 text-center"><i class="fas fa-check check-green"></i></td>
+                            <td class="py-4 text-center"><i class="fas fa-times check-red"></i></td>
+                        </tr>
+                        <tr class="border-b border-white/5">
+                            <td class="py-4">Simples de usar (sem curva de aprendizado)</td>
+                            <td class="py-4 text-center"><i class="fas fa-check check-green"></i></td>
+                            <td class="py-4 text-center"><i class="fas fa-times check-red"></i></td>
+                            <td class="py-4 text-center"><i class="fas fa-check check-green"></i></td>
+                        </tr>
+                        <tr class="border-b border-white/5">
+                            <td class="py-4">Pagamento único (sem assinatura)</td>
+                            <td class="py-4 text-center"><i class="fas fa-check check-green"></i></td>
+                            <td class="py-4 text-center"><i class="fas fa-times check-red"></i></td>
+                            <td class="py-4 text-center"><i class="fas fa-check check-green"></i></td>
+                        </tr>
+                        <tr class="border-b border-white/5">
+                            <td class="py-4">Funciona no celular (app nativo)</td>
+                            <td class="py-4 text-center"><i class="fas fa-check check-green"></i></td>
+                            <td class="py-4 text-center"><i class="fas fa-check check-green"></i></td>
+                            <td class="py-4 text-center"><i class="fas fa-times check-red"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="py-4">Atualizações vitalícias incluídas</td>
+                            <td class="py-4 text-center"><i class="fas fa-check check-green"></i></td>
+                            <td class="py-4 text-center"><i class="fas fa-times check-red"></i></td>
+                            <td class="py-4 text-center"><i class="fas fa-times check-red"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-center text-gray-400 text-sm mt-6">* NexusFlow combina o melhor dos dois mundos: simplicidade + poder digital</p>
+        </div>
+    </section>
+
+    <!-- OFERTA / OFFER SECTION -->
+    <section id="oferta" class="py-20 px-4 bg-dark-800/50 reveal">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full tag text-sm font-medium mb-6">
+                    <span>Oferta Especial de Lançamento</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Uma oferta <span class="gradient-text">irrecusável</span></h2>
+                <p class="text-lg text-gray-400 mb-8">Invista menos que um jantar fora e transforme todas as suas semanas para sempre.</p>
+                
+                <!-- Countdown -->
+                <div class="flex items-center justify-center gap-2 mb-8">
+                    <i class="fas fa-fire text-red-500 animate-pulse"></i>
+                    <span class="text-gray-400 font-medium">Oferta encerra em:</span>
+                </div>
+                
+                <div class="flex items-center justify-center gap-3 sm:gap-4 mb-12" id="countdown">
+                    <div class="countdown-box rounded-2xl p-3 sm:p-4 w-20 sm:w-24 bg-dark-800 border border-primary/20">
+                        <div class="text-3xl sm:text-4xl font-bold text-primary" id="hours">12</div>
+                        <div class="text-xs text-gray-400 mt-1">horas</div>
+                    </div>
+                    <span class="text-2xl text-gray-400">:</span>
+                    <div class="countdown-box rounded-2xl p-3 sm:p-4 w-20 sm:w-24 bg-dark-800 border border-primary/20">
+                        <div class="text-3xl sm:text-4xl font-bold text-primary" id="minutes">45</div>
+                        <div class="text-xs text-gray-400 mt-1">min</div>
+                    </div>
+                    <span class="text-2xl text-gray-400">:</span>
+                    <div class="countdown-box rounded-2xl p-3 sm:p-4 w-20 sm:w-24 bg-dark-800 border border-primary/20">
+                        <div class="text-3xl sm:text-4xl font-bold text-primary" id="seconds">30</div>
+                        <div class="text-xs text-gray-400 mt-1">seg</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Value Stack -->
+            <div class="glass rounded-3xl p-8 mb-8 border border-primary/20">
+                <h3 class="text-xl font-bold mb-6 text-center">Tudo que você recebe hoje:</h3>
+                
+                <div class="space-y-3 mb-8">
+                    <div class="value-item flex items-center justify-between py-3 border-b border-white/5 rounded-lg px-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-primary"></i>
+                            <span class="text-sm">Planejador Semanal Inteligente</span>
+                        </div>
+                        <span class="text-sm text-gray-500 line-through">R$ 97</span>
+                    </div>
+                    <div class="value-item flex items-center justify-between py-3 border-b border-white/5 rounded-lg px-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-primary"></i>
+                            <span class="text-sm">Matriz Eisenhower Automática</span>
+                        </div>
+                        <span class="text-sm text-gray-500 line-through">R$ 67</span>
+                    </div>
+                    <div class="value-item flex items-center justify-between py-3 border-b border-white/5 rounded-lg px-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-primary"></i>
+                            <span class="text-sm">Rastreador de Hábitos Pro</span>
+                        </div>
+                        <span class="text-sm text-gray-500 line-through">R$ 47</span>
+                    </div>
+                    <div class="value-item flex items-center justify-between py-3 border-b border-white/5 rounded-lg px-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-primary"></i>
+                            <span class="text-sm">Dashboard de Analytics</span>
+                        </div>
+                        <span class="text-sm text-gray-500 line-through">R$ 57</span>
+                    </div>
+                    <div class="value-item flex items-center justify-between py-3 border-b border-white/5 rounded-lg px-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-primary"></i>
+                            <span class="text-sm">5 Templates Bônus (Variações)</span>
+                        </div>
+                        <span class="text-sm text-gray-500 line-through">R$ 147</span>
+                    </div>
+                    <div class="value-item flex items-center justify-between py-3 border-b border-white/5 rounded-lg px-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-primary"></i>
+                            <span class="text-sm">Comunidade VIP no Telegram</span>
+                        </div>
+                        <span class="text-sm text-gray-500 line-through">R$ 97</span>
+                    </div>
+                    <div class="value-item flex items-center justify-between py-3 border-b border-white/5 rounded-lg px-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-primary"></i>
+                            <span class="text-sm">Mini Curso: Hábitos Atômicos</span>
+                        </div>
+                        <span class="text-sm text-gray-500 line-through">R$ 47</span>
+                    </div>
+                    <div class="value-item flex items-center justify-between py-3 rounded-lg px-3 bg-primary/5">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-primary"></i>
+                            <span class="text-sm font-semibold">Atualizações Vitalícias</span>
+                        </div>
+                        <span class="text-sm text-primary font-bold">∞</span>
+                    </div>
+                </div>
+
+                <!-- Price -->
+                <div class="text-center mb-8">
+                    <div class="flex items-center justify-center gap-3 mb-2">
+                        <span class="text-2xl text-gray-500 line-through">R$ 559</span>
+                        <span class="tag-red px-3 py-1 rounded-full text-sm font-bold">-92% OFF</span>
+                    </div>
+                    <div class="flex items-baseline justify-center gap-2 mb-2">
+                        <span class="text-2xl font-medium text-gray-400">12x R$</span>
+                        <span class="text-6xl sm:text-7xl font-bold gradient-text">4,70</span>
+                    </div>
+                    <p class="text-gray-400 mb-1">ou R$ 47 à vista (economia de R$ 512)</p>
+                    <p class="text-xs text-gray-500">Pagamento único • Acesso vitalício • Sem mensalidades</p>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="javascript:void(0)" onclick="openCheckout()" class="btn-primary w-full py-5 rounded-2xl text-xl font-bold text-black flex items-center justify-center gap-3 mb-6 group">
+                    <span>Quero minha semana organizada</span>
+                    <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+                <!-- Trust Badges -->
+                <div class="flex flex-wrap items-center justify-center gap-4 text-xs text-gray-400 mb-6">
+                    <span class="flex items-center gap-1"><i class="fas fa-shield-alt text-primary"></i> Garantia 7 dias</span>
+                    <span class="flex items-center gap-1"><i class="fas fa-lock text-primary"></i> Pagamento seguro</span>
+                    <span class="flex items-center gap-1"><i class="fas fa-bolt text-primary"></i> Acesso imediato</span>
+                </div>
+
+                <!-- Payment Methods -->
+                <div class="flex items-center justify-center gap-3">
+                    <span class="text-xs text-gray-500">Aceitamos:</span>
+                    <div class="flex gap-2">
+                        <span class="px-2 py-1 rounded bg-dark-700 text-xs"><i class="fas fa-qrcode mr-1"></i>Pix</span>
+                        <span class="px-2 py-1 rounded bg-dark-700 text-xs"><i class="fas fa-credit-card mr-1"></i>Cartão</span>
+                        <span class="px-2 py-1 rounded bg-dark-700 text-xs"><i class="fab fa-paypal mr-1"></i>PayPal</span>
+                        <span class="px-2 py-1 rounded bg-dark-700 text-xs"><i class="fas fa-barcode mr-1"></i>Boleto</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guarantee Box -->
+            <div class="glass rounded-2xl p-6 border-primary/20 flex items-start gap-4">
+                <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-shield-alt text-primary text-xl"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-1">Garantia Incondicional de 7 Dias</h4>
+                    <p class="text-sm text-gray-400">Se você não amar o NexusFlow, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia. Você não tem nada a perder.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="py-20 px-4 reveal">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-dark-700 text-gray-400 text-sm font-medium mb-6">
+                    <span>Perguntas Frequentes</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Tirou suas dúvidas?</h2>
+                <p class="text-gray-400">Se não encontrar sua resposta, chame no WhatsApp.</p>
+            </div>
+            
+            <div class="space-y-4" id="faq-container">
+                <!-- FAQ 1 -->
+                <div class="faq-item glass rounded-2xl overflow-hidden">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
+                        <span class="font-semibold">Preciso saber usar o Notion?</span>
+                        <i class="fas fa-chevron-down text-gray-400 faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-5">
+                        <p class="text-gray-400 text-sm">Não! O NexusFlow foi criado para ser 100% intuitivo. Se você sabe arrastar e soltar, já consegue usar. Incluímos um tutorial em vídeo de 5 minutos que ensina tudo do zero.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item glass rounded-2xl overflow-hidden">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
+                        <span class="font-semibold">Funciona no celular?</span>
+                        <i class="fas fa-chevron-down text-gray-400 faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-5">
+                        <p class="text-gray-400 text-sm">Sim! O Notion tem app gratuito para iOS e Android. Seu NexusFlow sincroniza automaticamente entre todos os dispositivos. Você pode planejar no computador e consultar no celular durante o dia.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item glass rounded-2xl overflow-hidden">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
+                        <span class="font-semibold">Como recebo o acesso?</span>
+                        <i class="fas fa-chevron-down text-gray-400 faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-5">
+                        <p class="text-gray-400 text-sm">Imediatamente após o pagamento (menos de 2 minutos), você recebe um email com o link para duplicar o template no seu Notion. É só clicar em "Duplicate" e pronto!</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-item glass rounded-2xl overflow-hidden">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
+                        <span class="font-semibold">O pagamento é mensal?</span>
+                        <i class="fas fa-chevron-down text-gray-400 faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-5">
+                        <p class="text-gray-400 text-sm">Nunca! É pagamento único de R$ 47. Você paga uma vez e tem acesso para sempre, incluindo todas as atualizações futuras do template.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-item glass rounded-2xl overflow-hidden">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
+                        <span class="font-semibold">E se eu não gostar?</span>
+                        <i class="fas fa-chevron-down text-gray-400 faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-5">
+                        <p class="text-gray-400 text-sm">Você tem 7 dias de garantia incondicional. Se não amar o NexusFlow, é só mandar um email que devolvemos 100% do seu dinheiro, sem perguntas e sem burocracia.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="faq-item glass rounded-2xl overflow-hidden">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
+                        <span class="font-semibold">Posso usar para minha equipe/empresa?</span>
+                        <i class="fas fa-chevron-down text-gray-400 faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-5">
+                        <p class="text-gray-400 text-sm">Esta licença é para uso pessoal individual. Para equipes ou empresas, entre em contato para licenças multiusuário com desconto especial.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact CTA -->
+            <div class="mt-8 text-center">
+                <p class="text-gray-400 text-sm mb-4">Ainda tem dúvidas?</p>
+                <a href="https://wa.me/5511999999999" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 hover:bg-white/5 transition-all">
+                    <i class="fab fa-whatsapp text-green-500"></i>
+                    <span>Falar no WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="py-20 px-4 bg-dark-800/50 reveal">
+        <div class="max-w-3xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-6 py-3 rounded-full tag text-sm font-medium mb-6 animate-pulse">
+                <i class="fas fa-fire"></i>
+                <span>⚡ Últimas 50 vagas com bônus exclusivos</span>
+            </div>
+            
+            <h2 class="text-3xl sm:text-4xl font-bold mb-6">
+                Sua próxima semana pode ser<br>
+                <span class="gradient-text">a mais produtiva da sua vida.</span>
+            </h2>
+            
+            <p class="text-gray-400 mb-8 text-lg">Ou você pode continuar fazendo do jeito de sempre e ter os mesmos resultados de sempre. A escolha é sua.</p>
+            
+            <a href="javascript:void(0)" onclick="openCheckout()" class="btn-primary px-10 py-5 rounded-2xl text-xl font-bold text-black inline-flex items-center gap-3 mb-6 group">
+                <span>SIM! Quero minha semana organizada</span>
+                <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            </a>
+            
+            <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-400">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-shield-alt text-primary"></i>
+                    <span>Garantia de 7 dias</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-credit-card text-primary"></i>
+                    <span>Pagamento seguro</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-bolt text-primary"></i>
+                    <span>Acesso imediato</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 px-4 border-t border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col items-center mb-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center border border-primary/30 shadow-lg shadow-primary/10">
+                        <span class="text-primary font-black text-xl tracking-tighter">N</span>
+                    </div>
+                    <span class="font-bold text-xl">NexusFlow</span>
+                </div>
+                <div class="flex gap-8 text-sm text-gray-400 mb-8">
+                    <a href="#" class="hover:text-white transition-colors">Termos de Uso</a>
+                    <a href="#" class="hover:text-white transition-colors">Política de Privacidade</a>
+                    <a href="#" class="hover:text-white transition-colors">Contato</a>
+                    <a href="#" class="hover:text-white transition-colors">Afiliados</a>
+                </div>
+            </div>
+            <p class="text-gray-500 text-sm text-center">© 2025 NexusFlow. Todos os direitos reservados. Feito com 💚 para quem quer resultados.</p>
+            <p class="text-gray-600 text-xs text-center mt-2">Este site não é afiliado ao Notion. O Notion é marca registrada da Notion Labs Inc.</p>
+        </div>
+    </footer>
+
+    <!-- EXIT INTENT MODAL -->
+    <div class="modal-overlay fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4" id="exit-modal">
+        <div class="modal-content glass rounded-3xl p-8 max-w-md w-full relative">
+            <button onclick="closeExitModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center mx-auto mb-4 border border-primary/30">
+                    <i class="fas fa-gift text-2xl text-primary"></i>
+                </div>
+                <h2 class="text-2xl font-bold mb-2">ESPERE! Não perca esta oportunidade única</h2>
+                <p class="text-gray-400">Use o cupom SAIDA10 e ganhe 10% OFF extra agora mesmo.</p>
+            </div>
+            
+            <div class="bg-primary/10 border border-primary/30 rounded-2xl p-6 text-center mb-6">
+                <div class="flex items-center justify-center gap-3 mb-2">
+                    <span class="text-gray-500 line-through text-lg">R$ 47</span>
+                    <span class="text-3xl font-bold text-primary">R$ 42,30</span>
+                </div>
+                <div class="flex items-center justify-center gap-2 mb-4">
+                    <div class="bg-dark-900 rounded-lg px-4 py-2 border border-dashed border-primary/50 font-mono text-lg text-white">
+                        SAIDA10
+                    </div>
+                    <button onclick="copyCoupon()" class="text-xs bg-primary/20 text-primary px-2 py-2 rounded-lg hover:bg-primary/30 transition-colors">COPIAR</button>
+                </div>
+                <p class="text-[10px] text-gray-500 uppercase font-bold tracking-wider">Válido apenas para esta saída</p>
+            </div>
+            
+            <button onclick="applyDiscountAndFinalize()" class="btn-primary w-full py-4 rounded-xl font-bold text-black hover:scale-[1.02] transition-transform mb-4">
+                APLICAR DESCONTO E FINALIZAR
+            </button>
+            
+            <button onclick="closeExitModal()" class="text-center w-full text-[10px] text-gray-500 hover:text-gray-300 transition-colors">
+                Não, prefiro pagar o preço cheio depois
+            </button>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        // ==================== SCROLL EFFECTS ====================
+        
+        // Reading Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('reading-progress').style.width = scrolled + '%';
+        });
+
+        // Sticky Header
+        let lastScroll = 0;
+        const stickyHeader = document.getElementById('sticky-header');
+        const mainNav = document.getElementById('main-nav');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 400) {
+                stickyHeader.classList.add('visible');
+                mainNav.style.opacity = '0';
+                mainNav.style.pointerEvents = 'none';
+            } else {
+                stickyHeader.classList.remove('visible');
+                mainNav.style.opacity = '1';
+                mainNav.style.pointerEvents = 'auto';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Reveal Animations on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // ==================== COUNTDOWN TIMER ====================
+        
+        function updateCountdown() {
+            const now = new Date();
+            const endOfDay = new Date();
+            endOfDay.setHours(23, 59, 59, 999);
+            
+            const diff = endOfDay - now;
+            
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // ==================== VIDEO PLAYER ====================
+        
+        function playVideo() {
+            document.getElementById('video-thumbnail').classList.add('hidden');
+            const videoEmbed = document.getElementById('video-embed');
+            videoEmbed.classList.remove('hidden');
+            const video = document.getElementById('vsl-video');
+            if (video) {
+                video.play();
+            }
+        }
+
+        function scrollToDemo() {
+            document.querySelector('.grid.md\\:grid-cols-2.lg\\:grid-cols-3').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // ==================== FAQ ACCORDION ====================
+        
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.faq-icon');
+            
+            document.querySelectorAll('.faq-content').forEach(item => {
+                if (item !== content) {
+                    item.classList.remove('open');
+                    item.previousElementSibling.querySelector('.faq-icon').classList.remove('rotate');
+                }
+            });
+            
+            content.classList.toggle('open');
+            icon.classList.toggle('rotate');
+        }
+
+        // ==================== EXIT INTENT MODAL ====================
+        
+        let exitIntentShown = false;
+        
+        document.addEventListener('mouseleave', (e) => {
+            if (e.clientY < 0 && !exitIntentShown && !sessionStorage.getItem('exitIntentShown')) {
+                document.getElementById('exit-modal').classList.add('active');
+                exitIntentShown = true;
+            }
+        });
+
+        function closeExitModal() {
+            document.getElementById('exit-modal').classList.remove('active');
+            sessionStorage.setItem('exitIntentShown', 'true');
+        }
+
+        function copyCoupon() {
+            navigator.clipboard.writeText('SAIDA10');
+            alert('Cupom SAIDA10 copiado!');
+        }
+
+        function applyDiscountAndFinalize() {
+            closeExitModal();
+            openCheckout();
+            const btnText = document.getElementById('btn-text');
+            if (btnText) {
+                btnText.textContent = '🔒 PAGAR R$ 42,30 E RECEBER ACESSO IMEDIATO →';
+            }
+            document.getElementById('preco-final').textContent = 'R$ 42,30';
+        }
+
+        document.getElementById('exit-modal').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) {
+                closeExitModal();
+            }
+        });
+
+        // ==================== LIVE COUNTER ====================
+        
+        function updateLiveCounter() {
+            const counter = document.getElementById('live-counter');
+            const current = parseInt(counter.textContent);
+            if (Math.random() > 0.7) {
+                counter.textContent = current + Math.floor(Math.random() * 2) + 1;
+            }
+        }
+
+        setInterval(updateLiveCounter, 45000);
+
+        // ==================== CHECKOUT SYSTEM ====================
+        
+        function openCheckout() {
+            document.getElementById('checkout-modal').classList.add('active');
+            document.getElementById('checkout-overlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkout-modal').classList.remove('active');
+            document.getElementById('checkout-overlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function setPaymentMethod(method) {
+            document.querySelectorAll('.payment-tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + method).classList.add('active');
+            document.querySelectorAll('.payment-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(method + '-content').classList.add('active');
+        }
+
+        // Input Masks
+        const cpfInput = document.getElementById('checkout-cpf');
+        if (cpfInput) {
+            cpfInput.addEventListener('input', (e) => {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 11) value = value.slice(0, 11);
+                value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+                e.target.value = value;
+            });
+        }
+
+        const cardInput = document.getElementById('card-number');
+        if (cardInput) {
+            cardInput.addEventListener('input', (e) => {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 16) value = value.slice(0, 16);
+                value = value.match(/.{1,4}/g)?.join(' ') || value;
+                e.target.value = value;
+                
+                const icon = e.target.nextElementSibling;
+                if (value.startsWith('4')) {
+                    icon.className = 'fab fa-cc-visa absolute right-4 top-4 text-blue-500';
+                } else if (value.startsWith('5')) {
+                    icon.className = 'fab fa-cc-mastercard absolute right-4 top-4 text-orange-500';
+                } else {
+                    icon.className = 'fas fa-credit-card absolute right-4 top-4 text-gray-500';
+                }
+            });
+        }
+
+        const expiryInput = document.getElementById('card-expiry');
+        if (expiryInput) {
+            expiryInput.addEventListener('input', (e) => {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 4) value = value.slice(0, 4);
+                if (value.length > 2) value = value.replace(/(\d{2})(\d)/, '$1/$2');
+                e.target.value = value;
+            });
+        }
+
+        const cvvInput = document.getElementById('card-cvv');
+        if (cvvInput) {
+            cvvInput.addEventListener('input', (e) => {
+                e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4);
+            });
+        }
+
+        function copiarPix() {
+            const pixCode = "00020126580014BR.GOV.BCB.PIX0136nexusflow@email.com520400005303986540647.005802BR5913NexusFlow6009SAO PAULO62070503***6304";
+            navigator.clipboard.writeText(pixCode);
+            alert('Código PIX copiado!');
+        }
+
+        function toggleOrderBump() {
+            const checkbox = document.getElementById('order-bump-check');
+            checkbox.checked = !checkbox.checked;
+            updateOrderBump();
+        }
+
+        function updateOrderBump() {
+            const checkbox = document.getElementById('order-bump-check');
+            const btnText = document.getElementById('btn-text');
+            if (checkbox.checked) {
+                btnText.textContent = '🔒 PAGAR R$ 64 E RECEBER ACESSO IMEDIATO →';
+            } else {
+                btnText.textContent = '🔒 PAGAR R$ 47 E RECEBER ACESSO IMEDIATO →';
+            }
+        }
+
+        document.getElementById('order-bump-check')?.addEventListener('change', updateOrderBump);
+
+        function aplicarCupom() {
+            const input = document.getElementById('cupom-input');
+            const msg = document.getElementById('cupom-msg');
+            
+            if (input.value.toUpperCase() === 'NEXUS20' || input.value.toUpperCase() === 'SAIDA10') {
+                msg.textContent = 'Cupom aplicado! Desconto de 10% ativado.';
+                msg.className = 'text-xs mt-2 text-primary';
+                msg.classList.remove('hidden');
+                
+                document.getElementById('preco-final').textContent = 'R$ 42,30';
+                document.getElementById('preco-original').textContent = 'R$ 47,00';
+                document.getElementById('badge-desconto').textContent = '10% OFF';
+                document.getElementById('btn-text').textContent = '🔒 PAGAR R$ 42,30 E RECEBER ACESSO IMEDIATO →';
+            } else {
+                msg.textContent = 'Cupom inválido ou expirado.';
+                msg.className = 'text-xs mt-2 text-red-500';
+                msg.classList.remove('hidden');
+            }
+        }
+
+        function atualizarParcela() {
+            const select = document.getElementById('parcelas');
+            const valorTotal = document.getElementById('order-bump-check')?.checked ? 64 : 47;
+            const parcelas = parseInt(select.value);
+            const valorParcela = (valorTotal / parcelas).toFixed(2).replace('.', ',');
+            
+            document.getElementById('parcela').textContent = `R$ ${valorParcela}`;
+        }
+
+        function processPayment() {
+            const btn = document.getElementById('pay-button');
+            const btnText = document.getElementById('btn-text');
+            const btnLoader = document.getElementById('btn-loader');
+            
+            const name = document.getElementById('checkout-name')?.value;
+            const email = document.getElementById('checkout-email')?.value;
+            
+            if (!name || !email) {
+                document.querySelectorAll('#checkout-name, #checkout-email').forEach(input => {
+                    if (!input.value) {
+                        input.classList.add('shake', 'border-red-500');
+                        setTimeout(() => input.classList.remove('shake'), 500);
+                    }
+                });
+                return;
+            }
+
+            btn.disabled = true;
+            btnText.textContent = 'Processando pagamento...';
+            btnLoader.classList.remove('hidden');
+            
+            setTimeout(() => {
+                closeCheckout();
+                showThankYou();
+            }, 2000);
+        }
+
+        // ==================== ÁREA DO ALUNO ====================
+        
+        function showThankYou() {
+            const modal = document.getElementById('thank-you-modal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            startUpsellTimer(15 * 60);
+        }
+
+        function closeThankYou() {
+            document.getElementById('thank-you-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        function mostrarTab(tabId, btn) {
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('tab-' + tabId).classList.add('active');
+            btn.classList.add('active');
+        }
+
+        // Dados das aulas
+        const aulas = [
+            { id: 1, titulo: "Módulo 1 — Introdução ao Sistema NexusFlow", duracao: "11 min", desc: "Entenda o sistema completo de produtividade e como ele vai transformar suas semanas.", videoId: "jfKfPfyJRdk", thumb: "https://img.youtube.com/vi/jfKfPfyJRdk/mqdefault.jpg" },
+            { id: 2, titulo: "Módulo 2 — Planejamento Semanal Eficiente", duracao: "14 min", desc: "Como planejar sua semana inteira em 5 minutos com o método correto.", videoId: "0bCs4AbnUwE", thumb: "https://img.youtube.com/vi/0bCs4AbnUwE/mqdefault.jpg" },
+            { id: 3, titulo: "Módulo 3 — Priorização e Foco Profundo", duracao: "13 min", desc: "Como classificar e executar suas tarefas mais importantes sem distrações.", videoId: "LAl8NZ_b3BY", thumb: "https://img.youtube.com/vi/LAl8NZ_b3BY/mqdefault.jpg" },
+            { id: 4, titulo: "Módulo 4 — Construindo Hábitos Duradouros", duracao: "10 min", desc: "A ciência por trás dos hábitos e como criar sequências que se mantêm sozinhas.", videoId: "75d_29QlaEE", thumb: "https://img.youtube.com/vi/75d_29QlaEE/mqdefault.jpg" },
+            { id: 5, titulo: "Módulo 5 — Revisão Semanal e Melhoria Contínua", duracao: "9 min", desc: "Como fazer sua revisão semanal e usar os dados para melhorar semana após semana.", videoId: "iONDebHX9qk", thumb: "https://img.youtube.com/vi/iONDebHX9qk/mqdefault.jpg" },
+        ];
+
+        function renderAulas() {
+            const lista = document.getElementById('aulas-lista');
+            if (!lista) return;
+            
+            lista.innerHTML = aulas.map((a, i) => `
+                <div class="aula-card" onclick="abrirAula(${a.id})">
+                    <div class="flex items-center gap-4 p-4">
+                        <div class="aula-thumb">
+                            <img src="${a.thumb}" alt="${a.titulo}">
+                            <div class="play-icon">
+                                <div class="play-icon-inner">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="text-[11px] text-gray-500 mb-1">Aula ${i+1}</div>
+                            <h4 class="font-semibold text-sm text-white truncate mb-1">${a.titulo}</h4>
+                            <p class="text-gray-400 text-xs line-clamp-2">${a.desc}</p>
+                        </div>
+                        <div class="text-primary text-xs font-semibold flex-shrink-0">${a.duracao}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function abrirAula(id) {
+            const aula = aulas.find(a => a.id === id);
+            const lista = document.getElementById('aulas-lista');
+            const player = document.getElementById('aula-player');
+            
+            if (!lista || !player) return;
+            
+            lista.style.display = 'none';
+            player.classList.remove('hidden');
+            
+            document.getElementById('video-titulo').textContent = aula.titulo;
+            document.getElementById('video-desc').textContent = aula.desc;
+            document.getElementById('video-iframe').src = `https://www.youtube.com/embed/${aula.videoId}?autoplay=1&rel=0`;
+        }
+
+        function voltarLista() {
+            const lista = document.getElementById('aulas-lista');
+            const player = document.getElementById('aula-player');
+            const iframe = document.getElementById('video-iframe');
+            
+            if (lista) lista.style.display = 'block';
+            if (player) player.classList.add('hidden');
+            if (iframe) iframe.src = '';
+        }
+
+        function startUpsellTimer(duration) {
+            let timer = duration;
+            const display = document.getElementById('upsell-timer');
+            const bar = document.getElementById('upsell-timer-bar');
+            
+            const interval = setInterval(function () {
+                const minutes = parseInt(timer / 60, 10);
+                const seconds = parseInt(timer % 60, 10);
+
+                const minStr = minutes < 10 ? "0" + minutes : minutes;
+                const secStr = seconds < 10 ? "0" + seconds : seconds;
+
+                if (display) display.textContent = minStr + ":" + secStr;
+                
+                const percent = (timer / duration) * 100;
+                if (bar) bar.style.width = percent + '%';
+
+                if (--timer < 0) {
+                    clearInterval(interval);
+                }
+            }, 1000);
+        }
+
+        // Inicializar aulas
+        renderAulas();
+
+        // ==================== SOCIAL PROOF ====================
+        
+        function showSocialProof() {
+            const toast = document.getElementById('social-proof');
+            const text = document.getElementById('social-proof-text');
+            const buyers = [
+                { name: "Carlos de São Paulo", action: "acabou de comprar NexusFlow" },
+                { name: "Mariana do Rio de Janeiro", action: "garantiu o bônus VIP" },
+                { name: "Ricardo de Curitiba", action: "acabou de comprar NexusFlow" },
+                { name: "Juliana de Belo Horizonte", action: "acabou de comprar NexusFlow" }
+            ];
+            
+            const buyer = buyers[Math.floor(Math.random() * buyers.length)];
+            text.textContent = buyer.name + ' ' + buyer.action;
+            toast.classList.add('active');
+            
+            setTimeout(() => {
+                toast.classList.remove('active');
+            }, 5000);
+        }
+
+        setInterval(showSocialProof, 45000 + Math.random() * 45000);
+        setTimeout(showSocialProof, 5000);
+
+        // ==================== URGENCY BAR ====================
+        
+        setTimeout(() => {
+            document.getElementById('urgency-bar').classList.add('active');
+        }, 30000);
+
+        function closeUrgencyBar() {
+            document.getElementById('urgency-bar').classList.remove('active');
+        }
+
+        // ==================== TESTIMONIALS ====================
+        
+        const moreTestimonials = [
+            {
+                name: "Pedro Henrique",
+                role: "Estudante de Medicina",
+                image: "https://ui-avatars.com/api/?name=Pedro+Henrique&background=EF4444&color=fff&size=128",
+                content: "Consegui organizar meus estudos de forma eficiente pela primeira vez. O rastreador de hábitos me mantém consistente mesmo nos dias difíceis.",
+                result: "Aprovado em 1º lugar"
+            },
+            {
+                name: "Juliana Martins",
+                role: "Marketing Digital",
+                image: "https://ui-avatars.com/api/?name=Juliana+Martins&background=8B5CF6&color=fff&size=128",
+                content: "Usei o template freelancer para gerenciar 8 clientes simultâneos. Nunca mais perdi um prazo. Meus clientes notaram a diferença!",
+                result: "+3 clientes novos"
+            },
+            {
+                name: "Roberto Silva",
+                role: "Empreendedor",
+                image: "https://ui-avatars.com/api/?name=Roberto+Silva&background=F97316&color=fff&size=128",
+                content: "A versão empreendedor com OKRs mudou minha empresa. Conseguimos crescer 40% no trimestre seguinte ao implementar o sistema.",
+                result: "40% de crescimento"
+            }
+        ];
+
+        function loadMoreTestimonials() {
+            const container = document.getElementById('testimonials-container');
+            
+            moreTestimonials.forEach((t, index) => {
+                setTimeout(() => {
+                    const card = document.createElement('div');
+                    card.className = 'testimonial-card glass rounded-2xl p-6 animate-fade-in';
+                    card.innerHTML = `
+                        <div class="flex gap-1 mb-4">
+                            ${Array(5).fill('<i class="fas fa-star text-yellow-400 text-sm"></i>').join('')}
+                        </div>
+                        <p class="text-gray-300 mb-6 text-sm leading-relaxed">"${t.content}"</p>
+                        <div class="flex items-center gap-3">
+                            <img src="${t.image}" class="w-12 h-12 rounded-full border-2 border-primary/30">
+                            <div>
+                                <p class="font-semibold text-sm">${t.name}</p>
+                                <p class="text-xs text-gray-400">${t.role}</p>
+                                <span class="inline-flex items-center gap-1 text-xs text-primary mt-1">
+                                    <i class="fas fa-check-circle"></i> Compra verificada
+                                </span>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-white/5">
+                            <span class="tag px-2 py-1 rounded-full text-xs">🚀 ${t.result}</span>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                }, index * 100);
+            });
+            
+            if (event && event.target) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // ==================== SMOOTH SCROLL ====================
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
